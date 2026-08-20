@@ -4,9 +4,9 @@
   "description": "Food Ordering Website using MERN Stack.This website is created for particular restaurant i.e Zyka.",
   "main": "server.js",
   "scripts": {
-    "start": "node backend/server.js",
-    "dev": "nodemon backend/server.js",
-    "prod": "SET NODE_ENV=PRODUCTION& nodemon backend/server.js",
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "prod": "SET NODE_ENV=PRODUCTION& nodemon server.js",
     "seeder": "node utils/seeder.js"
   },
   "author": "Richa",
