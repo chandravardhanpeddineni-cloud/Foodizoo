@@ -21,7 +21,7 @@ router.post("/generate-food-ai/:foodId", (req, res, next) => {
   next();
 }, aiController.generateAndSaveFoodAI);
 
-//analyzer
+
 router.put("/admin/restaurants/:id/analyze", aiController.analyzeRestaurantReviews)
 
 
