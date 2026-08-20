@@ -4,7 +4,7 @@ const connectDatabase = require("./config/database");
 // const dotenv = require("dotenv");
 const dotenv = require("dotenv");
 const cloudinary = require("cloudinary");
-const { setDriver } = require("mongoose");
+// const { setDriver } = require("mongoose");
 
 //Handle Uncaught exceptions
 process.on("uncaughtException", (err) => {
@@ -26,7 +26,7 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-const server = app.listen(process.env.PORT, () => {
+const server = app.listen(process.env.PORT, "0.0.0.0" , () => {
   console.log(
     `Server started on PORT: ${process.env.PORT} in ${process.env.NODE_ENV} mode.`
   );
