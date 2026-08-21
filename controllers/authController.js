@@ -287,10 +287,17 @@ exports.resetPassword = catchAsyncErrors(async (req, res, next) => {
 
 // Logout
 exports.logout = catchAsyncErrors(async (req, res, next) => {
+  const isCrossSiteFrontend =
+    process.env.FRONTEND_URL &&
+    !/^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(
+      process.env.FRONTEND_URL,
+    );
 
   res.cookie("jwt", null, {
     expires: new Date(Date.now()),
     httpOnly: true,
+    sameSite: isCrossSiteFrontend ? "none" : "lax",
+    secure: Boolean(isCrossSiteFrontend),
   });
 
   res.status(200).json({
