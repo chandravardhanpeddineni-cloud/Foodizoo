@@ -1,10 +1,12 @@
-const app = require("./app");
-const connectDatabase = require("./config/database");
-
-// const dotenv = require("dotenv");
 const dotenv = require("dotenv");
 const cloudinary = require("cloudinary");
 // const { setDriver } = require("mongoose");
+
+//setting up config file before app initializes middleware
+dotenv.config({ path: "./config/config.env" });
+
+const app = require("./app");
+const connectDatabase = require("./config/database");
 
 //Handle Uncaught exceptions
 process.on("uncaughtException", (err) => {
@@ -12,9 +14,6 @@ process.on("uncaughtException", (err) => {
   console.log("Shutting down server due to uncaught exception");
   process.exit(1);
 });
-
-//setting up config file
-dotenv.config({ path: "./config/config.env" });
 
 //connecting to database
 connectDatabase();
