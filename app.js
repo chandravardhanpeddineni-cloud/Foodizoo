@@ -6,14 +6,15 @@ const bodyParser = require("body-parser");
 // const cloudinary = require("cloudinary");
 const fileUpload = require("express-fileupload");
 const cors = require("cors");
-
+const dotenv = require('dotenv');
+dotenv.config();
 const aiRoutes = require("./routes/ai.routes");
 
 const errorMiddleware = require("./middlewares/errors");
 
 app.use(
   cors({
-    origin: "https://foodizoo-frontend-kvgvvhcpz.vercel.app",
+    origin: process.env.FRONTEND_URL,
     credentials: true,
   }),
 );
